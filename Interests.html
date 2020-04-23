@@ -61,7 +61,7 @@
 		$('.load_info').find('.music').append("<div class='fav_pic'></div><div class='fav_video'></div>");
 		var i;
 		for(i=0;i<obj.music.length;i++){
-			$('.fav_pic').append("<a id='"+obj.music[i].id+"'><img alt='"+obj.music[i].name+"' src='img/artists/"+obj.music[i].name+".jpg'></a>");
+			$('.fav_pic').append("<a title='"+obj.music[i].name+"' id='"+obj.music[i].id+"'><img alt='"+obj.music[i].name+"' src='img/artists/"+obj.music[i].name+".jpg'></a>");
 			//load video
 			$('.fav_pic img').click(function(){
 				$('.youtube').remove();
@@ -102,7 +102,7 @@
 		$('.poster').remove();
 		var i;
 		for(i=0;i<obj.movie.length;i++){
-		  $('.load_info').find('.movies').append("<div class='poster'><a target='_blank' href='https://www.imdb.com/title/"+obj.movie[i].id+"'><div style='position: relative;'><img alt='"+obj.movie[i].name+"' src='img/posters/"+obj.movie[i].name+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
+		  $('.load_info').find('.movies').append("<div class='poster'><a title='"+obj.movie[i].name+"' target='_blank' href='https://www.imdb.com/title/"+obj.movie[i].id+"'><div style='position: relative;'><img alt='"+obj.movie[i].name+"' src='img/posters/"+obj.movie[i].name+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
 		}
 		$('.poster').hover(
 			function(){
@@ -130,7 +130,7 @@
 		$('.poster').remove();
 		var i;
 		for(i=0;i<obj.tv.length;i++){
-		  $('.load_info').find('.tvshows').append("<div class='poster'><a target='_blank' href='https://www.imdb.com/title/"+obj.tv[i].id+"'><div style='position: relative;'><img alt='"+obj.tv[i].name+"' src='img/posters/"+obj.tv[i].name+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
+		  $('.load_info').find('.tvshows').append("<div class='poster'><a title='"+obj.tv[i].name+"' target='_blank' href='https://www.imdb.com/title/"+obj.tv[i].id+"'><div style='position: relative;'><img alt='"+obj.tv[i].name+"' src='img/posters/"+obj.tv[i].name+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
 		}
 		
 		$('.poster').hover(
