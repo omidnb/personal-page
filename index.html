@@ -2,9 +2,35 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="css/main_css.css">
+<script src="https://kit.fontawesome.com/38aecbd0d4.js" crossorigin="anonymous"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 </head>
-
-<body>
+<body onload="mainPage()">
+<div id="main_page">
+  <div id="header">
+    <nav class="navigation">
+      <ul>
+        <li onclick="loadFunction(this)"><a><span>Home</span></a></li>
+        <li onclick="loadFunction(this)"><a><span>Bio</span></a></li>
+        <li onclick="loadFunction(this)"><a><span>Resume</span></a></li>
+        <li onclick="loadFunction(this)"><a><span>Interests</span></a></li>
+        <li onclick="loadFunction(this)"><a><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div id="loading_page"></div>
+</div>
+<script>
+  function mainPage(){
+	$( "#loading_page" ).append("<iframe id='main_iframe' src='Home.html'></iframe>");
+  }
+  function loadFunction(e){
+	$( "#loading_page" ).empty(); 
+    var x = $(e).find('span').text();
+    $( "#loading_page" ).append("<iframe allowfullscreen='allowfullscreen' id='main_iframe' src='"+x+".html'></iframe>");
+  }
+</script> 
 </body>
 </html>
