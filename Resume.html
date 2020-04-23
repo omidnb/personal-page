@@ -1,0 +1,288 @@
+<!doctype html>
+<script src="js/jquery-3.2.1.min.js"></script>
+
+<div id="resume">
+  <div class="load_box"></div>
+  <div class="load_info">
+    <div class="l_info summary"></div>
+    <div class="l_info skills">
+      <p>- Experienced in HTML and CSS.</p>
+      <p>- Experienced in JavaScript and jQuery.</p>
+      <p>- Learning Python.</p>
+      <p>- Worked with Adobe Photoshop.</p>
+      <p>- Worked with Microsoft Office.</p>
+      <p>- Team Work abilities.</p>
+      <p>- Time Management.</p>
+      <p>- Self-motivation.</p>
+      <p>- Adaptability.</p>
+      <p>- Punctual.</p>
+    </div>
+    <div class="l_info education">
+      <div class="edu_title">
+		  <span>Name of University:</span><span>Islamic Azad University</span>
+	  </div>
+      <div class="edu_title">
+		<span>Country of Education:</span><span>Iran</span>
+	  </div>
+      <div class="edu_title">
+	    <span>Credential Name:</span><span>Bachelor's degree</span>
+	  </div>
+      <div class="edu_title">
+		<span>Year:</span><span>2017</span>
+	  </div>
+      <div class="edu_title">
+		<span>Length of Program:</span><span>Four Years</span>
+	  </div>
+      <div class="edu_title">
+		<span>Major:</span><span>Computer Engineering (Software) </span>
+	  </div>
+      <div class="edu_title">
+		<span>U.S. Equivalency:</span><span>Bachelor's degree</span>
+	  </div>
+      <div class="edu_title">
+		<span>Equivalency's Link:</span><span><a text-decoration="underline" target="_blank" href="https://wes.credly.com/member-badges/15773821">World Education Services (WES)</a></span>
+	  </div>
+    </div>
+    <div class="l_info certificates">
+      <div class="each_cert">
+		  <p>Sep 2019</p><p class="cert_topic">HTML Fundamentals (SoloLearn)</p><p></p>
+	  </div>
+	  <div class="each_cert">
+		  <p>Jan 2019</p><p class="cert_topic">jQuery Tutorial (SoloLearn)</p><p></p>
+	  </div>
+	  <div class="each_cert">
+		  <p>Jan 2016</p><p class="cert_topic">Advanced Web Design Course (Parto Academy)</p><p>Tehran, Iran</p>
+	  </div>
+	  <div class="each_cert">
+		  <p>Dec 2015</p><p class="cert_topic">Programming in C# (Sematec Institute)</p><p>Tehran, Iran</p>
+	  </div>
+	  <div class="each_cert">
+		  <p>Apr 2015</p><p class="cert_topic">Microsoft .Net Fundamentals (Sematec Institute)</p><p>Tehran, Iran</p>
+	  </div>
+		
+    </div>
+    <div class="l_info employments">
+      <div class="jobs">
+        <div class="job_description">
+          <div class="job_title"> <span>Pizzaiolo</span> <span>PizzaCS</span> </div>
+          <div class="job_info"> <span>Prepared and made pizza.</span> </div>
+        </div>
+        <div class="job_period"> <span>Jan 2019 – Mar 2020</span> <span>Rockville, Maryland</span> </div>
+      </div>
+      <div class="jobs">
+        <div class="job_description">
+          <div class="job_title"> <span>Frontend Web Developer</span> <span>Manzoomeh Negaran</span> </div>
+          <div class="job_info"> <span>Software and languages:
+            <ul>
+              <li>Adobe Dreamweaver</li>
+              <li>Adobe Photoshop</li>
+              <li>Notepad++</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>jQuery</li>
+              <li>JavaScript</li>
+            </ul>
+            </span> <span>Projects involved:</span> <span>Improved and designed new layouts to achieve usability and performance objectives.</span> </div>
+        </div>
+        <div class="job_period"> <span>Nov 2017 - May 2018</span> <span>Tehran, Iran</span> </div>
+      </div>
+      <div class="jobs">
+        <div class="job_description">
+          <div class="job_title"> <span>Data entry</span> <span>Sanjeh Hesab Co</span> </div>
+          <div class="job_info"> <span>Software:
+            <ul>
+              <li>Microsoft Word</li>
+              <li>Microsoft Excel</li>
+            </ul>
+            </span> </div>
+        </div>
+        <div class="job_period"> <span>Mar 2017 - Sep 2017</span> <span>Tehran, Iran</span> </div>
+      </div>
+    </div>
+    <div class="l_info extra_activities">
+      <p>-Listening to music.</p>
+      <p>-Surfing on the net.</p>
+      <p>-Cooking.</p>
+      <p>-Running.</p>
+    </div>
+  </div>
+  <div class="load_nav">
+    <ul>
+      <li onclick="changeTopics(this)" class="summary">Summary</li>
+      <li onclick="changeTopics(this)" class="skills">Skills</li>
+      <li onclick="changeTopics(this)" class="education">Education</li>
+      <li onclick="changeTopics(this)" class="certificates">Certificates</li>
+      <li onclick="changeTopics(this)" class="employments">Employments</li>
+      <li onclick="changeTopics(this)" class="extra_activities">Extracurricular Activities</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+    	$(".summary").trigger('click');
+	});
+	
+	function changeTopics(a){
+		$('.load_info').children().css('display', 'none');
+		$('.load_nav').find('li').css({'border-bottom' : '2px solid #3b4b63','background-color' : '#3e4f68'});
+		var b = $(a).attr('class');
+		var className = "."+b;
+		$(className).css('display', 'block');
+		$(a).css({'border-bottom' : '2px solid darkorange','background-color' : '#253A59'});
+		//reload music
+		$('.youtube').remove();
+		$('.youtube_player').remove();
+	}
+</script>
+<style>
+/*Resume CSS*/
+body{
+	margin:0px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+ul {
+    list-style: none;
+    margin: 0px;
+}
+#resume {
+    font-family: Impact, Charcoal, sans-serif;
+    width: 715px;
+    height: 402px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 15px;
+}
+.load_box {
+    width: 715px;
+    height: 402px;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute; /*can be removed. check later*/
+    border-radius: 15px;
+}
+.load_nav {
+    width: 130px;
+    height: 100%;
+    position: absolute;
+    background-color: #3e4f68;
+    border-radius: 15px 0px 0px 15px;
+    color: white;
+    border-right: 2px solid darkorange;
+    opacity: 0.9;
+}
+.load_nav ul {
+    padding-left: 0px;
+    text-align: center;
+}
+.load_nav ul li {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #3b4b63;
+}
+.load_nav ul li:first-child {
+    border-radius: 15px 0px 0px 0px;
+}
+.load_nav ul li:hover {
+    background-color: #2e4362 !important;
+    border-bottom: 2px solid darkorange !important;
+}
+.load_nav ul li:active {
+    background-color: #253A59 !important;
+}
+.load_info {
+    width: 574px;
+    height: 402px;
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+    left: 131px;
+    position: absolute;
+    opacity: 0.9;
+    padding-left: 10px;
+}
+.l_info {
+    display: none;
+    margin-top: 10px;
+    width: 560px;
+    height: 380px;
+    overflow: auto;
+}
+.edu_title {
+    width: 100%;
+	height: 10%;
+}
+.edu_title span {
+    width: 40%;
+	display: inline-block;
+	margin: 3% 1%;
+}
+.edu_title a {
+    color: #22c16e;
+}
+.each_cert{
+	width: 100%;
+	height: 60px;
+	}
+.each_cert p{
+	margin: 5px 0px;
+	display: inline-flex;
+	width: 25%;
+	}
+.cert_topic{
+	width: 50% !important;
+	}
+.jobs {
+    border-bottom: 1px solid gainsboro;
+    padding: 5px 0px 50px 0px;
+    width: 550px;
+}
+.jobs span {
+    display: block;
+}
+.jobs:last-child {
+    border-bottom: none;
+}
+.job_description {
+    display: inline-block;
+    width: 430px;
+}
+.job_period {
+    float: right;
+    padding-top: 4px;
+    font-size: 14px;
+}
+.job_title {
+    font-size: 22px;
+}
+.job_info {
+    margin-top: 10px;
+}
+/*Scroll*/
+.l_info, .load_nav{
+    scrollbarBG: #CFD8DC;
+    thumbBG: #90A4AE;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+	
+@media only screen and (max-width: 730px){
+	#resume{width: 100%;height: 100%;position: absolute;border-radius: 0px;}
+	.load_box{width: 100%; height: 100%;border-radius: 0px;}
+	.load_nav{width: 20%;border-radius: 0px;font-size: 2.2vw;overflow: auto;}
+	.load_nav ul li{padding: 8%;}
+	.load_nav ul li:first-child{border-radius: 0px;}
+	.load_info{width: 79%;height: 100%;left:20%;padding-left: 1%;border-radius: 0px;opacity: 0.8;}
+	.edu_title{font-size: 2.1vw;}
+	.job_title{font-size: 3.1vw;}
+	.job_period{font-size: 2vw;}
+	.l_info{width: 100%;height: 100%;margin: 0px;font-size: 2.1vw;max-height: 400px;}
+	.jobs{width: 98%;}
+	.job_description{width: 75%;}
+	.each_cert{height: 15%;}
+	.each_cert p{margin: 2% 0px;line-height: 1;}
+	
+}
+</style>

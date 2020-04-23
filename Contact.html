@@ -1,0 +1,79 @@
+<!doctype html>
+
+<script src="https://kit.fontawesome.com/38aecbd0d4.js" crossorigin="anonymous"></script>
+
+<div id="contact">
+  <div class="load_box"></div>
+  <div class="social_media"> 
+	  <a target="_blank" href="https://www.linkedin.com/in/omidnb"><i class="fab fa-linkedin"></i>LindedIn</a> 
+	  <a target="_blank" href="https://my.indeed.com/p/omidn-zae7448"><i class="fas fa-briefcase"></i>Indeed</a> 
+	  <a target="_blank" href="https://www.instagram.com/omid.nobahari"><i class="fab fa-instagram"></i>Instagram</a> 
+	  <a target="_blank" href="https://twitter.com/NobahariOmid"><i class="fab fa-twitter"></i>Twitter</a> 
+	  <a><i class="fas fa-envelope"></i>nobahariomid@gmail.com</a> 
+  </div>
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24782.925736805275!2d-77.14138176673067!3d39.06397426145368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cc4b4142bbb5%3A0x6bb9263f766f7ffd!2s262%20Congressional%20Ln%2C%20Rockville%2C%20MD%2020852!5e0!3m2!1sen!2sus!4v1587076713887!5m2!1sen!2sus" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </div>
+</div>
+
+<style>
+/*Contact CSS*/
+body{
+	margin:0px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+#contact {
+    font-family: Impact, Charcoal, sans-serif;
+    width: 715px;
+    height: 402px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 15px;
+}
+.load_box {
+    width: 715px;
+    height: 402px;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute; /*can be removed. check later*/
+    border-radius: 15px;
+}
+.social_media{
+	position: absolute;
+	margin: 20px 0px 20px 20px;
+	width: 320px;
+}
+
+.social_media a{
+	display: inline-block;
+	color:white;
+	font-size: 20px;
+	margin-top: 20px;
+	min-width: 150px;
+}
+.social_media i{
+	padding-right: 5px;
+}
+.map{
+	position: absolute;
+	width: 350px;
+	top: 25px;
+	right: 25px;
+}
+.map iframe{
+	border-radius: 5px;
+}
+	
+@media only screen and (max-width: 730px){
+	html{top: 2%;position: relative;}
+	#contact{width: 90%;height: auto;} 
+	.load_box{width: 99%;height: 100%;}
+	.social_media , .map{width:90%;margin: 1% auto;position: relative;}
+	.social_media a{font-size: 2.7vw;width: auto;min-width: auto;margin: 2%;}
+	.map{padding-bottom: 2%;top:0;right:0;}
+	.map iframe{width: 100%;height: 100%;}
+}
+</style>

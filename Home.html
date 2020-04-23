@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+
+<div id="home">
+  <img alt="" class="home_box" src="img/theme.jpg">
+  <div class="title right_title"><span>PERMANENT RESIDENT</span></div>
+  <div class="title left_title"> <img src="img/eagle3.png" alt="eagle"> <span>UNITED STATES OF AMERICA</span> </div>
+  <div class="home_info">
+    <p><span class="small_type">Surname</span> <span class="large_type">Omid</span></p>
+    <p><span class="small_type">Given Name</span> <span class="large_type">Nobahari Shabestari</span></p>
+    <p><span class="small_type">Date of Birth</span> <span class="large_type">03/07/1995</span></p>
+    <p><span class="small_type">City/State</span> <span class="large_type">Rockville, MD</span></p>
+  </div>
+  <div class="home_pic"></div>
+</div>
+<style>
+/*Home CSS*/	
+body{
+	margin: 0px;
+}
+#home {
+    font-family: Impact, Charcoal, sans-serif;
+    width: 715px;
+    position: relative;
+	margin: 0px auto 5px auto;
+}
+.home_box {
+    width: 715px;
+	/*height: 400px;*/
+    opacity: 0.8;
+    position: relative;
+    border-radius: 15px;
+}
+.home_info {
+    width: 55%;
+    height: 70%;
+    position: absolute;
+    right: 5%;
+    top: 20%;
+}
+.home_info p{
+	margin: 4% auto;
+}
+.home_pic {
+    background-image: url("img/omid.png");
+    background-size: cover;
+    width: 30%;
+    height: 80%;
+    /*border-radius: 100%;*/
+    position: absolute;
+    margin-left: 5%;
+    top: 7%;
+}
+.title {
+    width: 51%;
+    background-color: darkseagreen;
+    position: absolute;
+    color: white;
+    font-size: 28px;
+}
+.left_title {
+	top: 0px;
+    height: 12%;
+    border-radius: 15px 0px 0px 0px;
+}
+.right_title {
+    height: 10%;
+    right: 0px;
+    top: 5%;
+    border-radius: 0px 0px 0px 15px;
+}
+.left_title span {
+    position: relative;
+    top: 15%;
+    left: 16%;
+}
+.right_title span {
+    position: relative;
+    top: 5%;
+    left: 8%;
+}
+.left_title img {
+    position: absolute;
+    width: 13%;
+    margin: 1.5%;
+}
+.home_info span {
+    display: block;
+}
+.small_type {
+    font-size: 16px;
+    margin: 0px;
+}
+.large_type {
+    font-size: 26px;
+    margin: 0px;
+}
+	
+@media only screen and (max-width: 730px){
+	html{top: 2%;position: relative;}
+	#home{width: 90%;} 
+	.home_box{width: 99%;}
+	.title{font-size:3.5vw;}
+	.right_title{right: 1%;}
+	.small_type{font-size: 2.2vw;}
+	.large_type{font-size: 3.5vw;}
+}
+</style>

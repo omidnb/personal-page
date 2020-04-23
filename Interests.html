@@ -1,0 +1,423 @@
+<!doctype html>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="https://kit.fontawesome.com/38aecbd0d4.js" crossorigin="anonymous"></script>
+
+<div id="interests">
+  <div class="load_box"></div>
+  <div class="load_nav">
+    <ul>
+      <li onclick="changeTopics(this)" class="music">Music</li>
+      <li onclick="changeTopics(this)" class="movies">Movies</li>
+      <li onclick="changeTopics(this)" class="tvshows">TV Shows / Series</li>
+      <li onclick="changeTopics(this)" class="foods">Foods</li>
+      <li onclick="changeTopics(this)" class="cars">Cars</li>
+      <li onclick="changeTopics(this)" class="roads">Roads</li>
+    </ul>
+  </div>
+  <div class="load_info">
+    <div class="l_info music"></div>
+    <div class="l_info movies"></div>
+    <div class="l_info tvshows"></div>
+    <div class="l_info foods"></div>
+    <div class="l_info cars"></div>
+    <div class="l_info roads"></div>
+  </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+    	$(".music").trigger('click');
+	});
+	
+	function changeTopics(a){
+		$('.load_info').children().css('display', 'none');
+		$('.load_nav').find('li').css({'border-bottom' : '2px solid #3b4b63','background-color' : '#3e4f68'});
+		var b = $(a).attr('class');
+		var className = "."+b;
+		$(className).css('display', 'block');
+		$(a).css({'border-bottom' : '2px solid darkorange','background-color' : '#253A59'});
+		//reload music
+		$('.youtube').remove();
+		$('.youtube_player').remove();
+	}
+//***Interests*** 
+	//music
+	$('.load_nav').find('.music').click(function(){
+		var artist = '{"music":['+
+			'{"name":"Pink Floyd","id":"soL8JK6kALc"},'+
+			'{"name":"Celine Dion","id":"CuIzDrjBbO8"},'+
+			'{"name":"Lana Del Rey","id":"1OEron4rXfk"},'+
+			'{"name":"Shahin Najafi","id":"bV14433pB88"},'+
+			'{"name":"Mohsen Namjoo","id":"uNvpg2hfX3I"},'+
+			'{"name":"Ebi","id":"SYEpdlNgjuM"},'+
+			'{"name":"Dariush","id":"gPEAzNqjOzw"},'+
+			'{"name":"Vivaldi","id":"p1qNOfdMyGA"},'+
+			'{"name":"Yann Tiersen","id":"QGsOAvyZJzY"}]}';
+		obj = JSON.parse(artist);
+		
+		$('.fav_pic').remove();
+		$('.fav_video').remove();
+		$('.load_info').find('.music').append("<div class='fav_pic'></div><div class='fav_video'></div>");
+		var i;
+		for(i=0;i<obj.music.length;i++){
+			$('.fav_pic').append("<a id='"+obj.music[i].id+"'><img alt='"+obj.music[i].name+"' src='img/artists/"+obj.music[i].id+".jpg'></a>");
+			//load video
+			$('.fav_pic img').click(function(){
+				$('.youtube').remove();
+				$('.fav_video').append("<iframe class='youtube' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
+				var x = "https://www.youtube.com/embed/" + $(this).closest('a').attr('id');
+				$('.fav_video iframe').attr('src' , x);
+			})		
+		}
+	})
+	
+	//movies
+	$('.load_nav').find('.movies').click(function(){
+		var imdb = '{"movie":['+
+			'{"name":"A Time for Love","id":"tt4108894"},'+
+			'{"name":"The Curious Case of Benjamin Button","id":"tt0421715"},'+
+			'{"name":"Carol","id":"tt2402927"},'+
+			'{"name":"The Dark Knight","id":"tt0468569"},'+
+			'{"name":"Fight Club","id":"tt0137523"},'+
+			'{"name":"The Godfather","id":"tt0068646"},'+
+			'{"name":"The Godfather: Part II","id":"tt0071562"},'+
+			'{"name":"Inglourious Basterds","id":"tt0361748"},'+
+			'{"name":"John Wick","id":"tt2911666"},'+
+			'{"name":"Joker","id":"tt7286456"},'+
+			'{"name":"Logan","id":"tt3315342"},'+
+			'{"name":"The Matrix","id":"tt0133093"},'+
+			'{"name":"The Matrix Reloaded","id":"tt0234215"},'+
+			'{"name":"The Matrix Revolutions","id":"tt0242653"},'+
+			'{"name":"One Flew Over the Cuckoos Nest","id":"tt0073486"},'+
+			'{"name":"Pulp Fiction","id":"tt0110912"},'+
+			'{"name":"Rocky IV","id":"tt0089927"},'+
+			'{"name":"Scarface","id":"tt0086250"},'+
+			'{"name":"Scent of a Woman","id":"tt0105323"},'+
+			'{"name":"X-Men Origins: Wolverine","id":"tt0458525"}]}';
+		obj = JSON.parse(imdb);
+		
+		$('.poster').remove();
+		var i;
+		for(i=0;i<obj.movie.length;i++){
+		  $('.load_info').find('.movies').append("<div class='poster'><a target='_blank' href='https://www.imdb.com/title/"+obj.movie[i].id+"'><div style='position: relative;'><img alt='"+obj.movie[i].name+"' src='img/posters/"+obj.movie[i].id+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
+		}
+		$('.poster').hover(
+			function(){
+				$(this).find('span').css('display' , 'block');
+				$(this).find('img').css('opacity' , '0.4');
+			},
+			function(){
+				$(this).find('span').css('display' , 'none');
+				$(this).find('img').css('opacity' , '1');
+			}
+		)
+	})
+	
+	//tvshows
+	$('.load_nav').find('.tvshows').click(function(){
+		var imdb = '{"tv":[' +
+			'{"name":"Breaking Bad","id":"tt0903747" },' +
+			'{"name":"Friends","id":"tt0108778" },' +
+			'{"name":"The Grand Tour","id":"tt5712554" },' +
+			'{"name":"How I Met Your Mother","id":"tt0460649" },' +
+			'{"name":"Prison Break","id":"tt0455275" },' +
+			'{"name":"Top Gear","id":"tt1628033" }]}';
+		obj = JSON.parse(imdb);
+		
+		$('.poster').remove();
+		var i;
+		for(i=0;i<obj.tv.length;i++){
+		  $('.load_info').find('.tvshows').append("<div class='poster'><a target='_blank' href='https://www.imdb.com/title/"+obj.tv[i].id+"'><div style='position: relative;'><img alt='"+obj.tv[i].name+"' src='img/posters/"+obj.tv[i].id+".jpg'class='film_pic'><span class='overview'>Overview</span></div></a></div>");
+		}
+		
+		$('.poster').hover(
+			function(){
+				$(this).find('span').css('display' , 'block');
+				$(this).find('img').css('opacity' , '0.4');
+			},
+			function(){
+				$(this).find('span').css('display' , 'none');
+				$(this).find('img').css('opacity' , '1');
+			}
+		)
+	})
+	
+	//foods
+	$('.load_nav').find('.foods').click(function(){
+		$('.load_info').find('.foods').append("<div class='youtube_player'><a id='prev_food'><i class='fas fa-chevron-left'></i></a><iframe class='youtube' frameborder='0' allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/ryBlNZshhwE'></iframe><a id='next_food'><i class='fas fa-chevron-right'></i></a></div>");
+		//YouTube URL Links
+		var foods = ["ryBlNZshhwE", "unK-IjRvces", "sSR0fXBYxf0", "G8iVNFyDgZM", "eKVMOwlZV70", "hNuX5Tthg_U", "jpVlknrBEx4"];
+		var i = 0;
+		//load next video
+		$('#next_food').click(function(){
+			i++;
+			if(i<foods.length){
+				var x = "https://www.youtube.com/embed/" + foods[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=foods.length){
+				var x = "https://www.youtube.com/embed/" + foods[0];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=0;
+			}
+		});
+		//load previous video
+		$('#prev_food').click(function(){
+			i--;
+			if(i>-1){
+				var x = "https://www.youtube.com/embed/" + foods[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=-1){
+				var x = "https://www.youtube.com/embed/" + foods[foods.length-1];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=foods.length-1;
+			}
+		});	
+	})
+	
+	//cars
+	$('.load_nav').find('.cars').click(function(){
+		$('.load_info').find('.cars').append("<div class='youtube_player'><a id='prev_car'><i class='fas fa-chevron-left'></i></a><iframe class='youtube' frameborder='0' allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/gGWpKo59eMc'></iframe><a id='next_car'><i class='fas fa-chevron-right'></i></a></div>");
+		//YouTube URL Links
+		var cars = ["gGWpKo59eMc", "fl-XnPZ8zto", "gIoLyAsMGdc", "gRwR1WH0rR8", "3Gdi2tKS5hM", "5NU6C9jJZqM", "FiAj1zIpz8Q", "ZcyRRwHveDE", "fdTNi5LdUuo"];
+		var i = 0;
+		//load next video
+		$('#next_car').click(function(){
+			i++;
+			if(i<cars.length){
+				var x = "https://www.youtube.com/embed/" + cars[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=cars.length){
+				var x = "https://www.youtube.com/embed/" + cars[0];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=0;
+			}
+		});
+		//load previous video
+		$('#prev_car').click(function(){
+			i--;
+			if(i>-1){
+				var x = "https://www.youtube.com/embed/" + cars[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=-1){
+				var x = "https://www.youtube.com/embed/" + cars[cars.length-1];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=cars.length-1;
+			}
+		});	
+	})
+	
+	//roads
+	$('.load_nav').find('.roads').click(function(){
+		$('.load_info').find('.roads').append("<div class='youtube_player'><a id='prev_road'><i class='fas fa-chevron-left'></i></a><iframe class='youtube' frameborder='0' allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/Y2YC3ZM5V7A'></iframe><a id='next_road'><i class='fas fa-chevron-right'></i></a></div>");
+		//YouTube URL Links
+		var roads = ["Y2YC3ZM5V7A", "-48fKFIQec0", "hV5YeVAlHlU", "zmn2YWh3Mk8", "dD7bCIsa2r0", "lzZHfbTjGAM", "aqbXEaqCBIk", "2VlUABECPq0", "l6V6z5M8Udc", "RfqiqcTL95g"];
+		var i = 0;
+		//load next video
+		$('#next_road').click(function(){
+			i++;
+			if(i<roads.length){
+				var x = "https://www.youtube.com/embed/" + roads[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=roads.length){
+				var x = "https://www.youtube.com/embed/" + roads[0];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=0;
+			}
+		});
+		//load previous video
+		$('#prev_road').click(function(){
+			i--;
+			if(i>-1){
+				var x = "https://www.youtube.com/embed/" + roads[i];
+				$('.youtube_player iframe').attr('src' , x);	
+			}
+			else if(i=-1){
+				var x = "https://www.youtube.com/embed/" + roads[roads.length-1];
+				$('.youtube_player iframe').attr('src' , x);	
+				i=roads.length-1;
+			}
+		});	
+	})
+</script>
+
+<style>
+/*Interests CSS*/
+body{
+	margin:0px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+ul {
+    list-style: none;
+    margin: 0px;
+}
+#interests {
+    font-family: Impact, Charcoal, sans-serif;
+    width: 715px;
+    height: 402px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 15px;
+}
+
+.load_box {
+    width: 715px;
+    height: 402px;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute; /*can be removed. check later*/
+    border-radius: 15px;
+}
+.load_nav {
+    width: 130px;
+    height: 100%;
+    position: absolute;
+    background-color: #3e4f68;
+    border-radius: 15px 0px 0px 15px;
+    color: white;
+    border-right: 2px solid darkorange;
+    opacity: 0.9;
+}
+.load_nav ul {
+    padding-left: 0px;
+    text-align: center;
+}
+.load_nav ul li {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #3b4b63;
+}
+.load_nav ul li:first-child {
+    border-radius: 15px 0px 0px 0px;
+}
+.load_nav ul li:hover {
+    background-color: #2e4362 !important;
+    border-bottom: 2px solid darkorange !important;
+}
+.load_nav ul li:active {
+    background-color: #253A59 !important;
+}
+.load_info {
+    width: 574px;
+    height: 402px;
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+    left: 131px;
+    position: absolute;
+    opacity: 0.9;
+    padding-left: 10px;
+}
+.l_info {
+    display: none;
+    margin-top: 10px;
+    width: 560px;
+    height: 380px;
+    overflow: auto;
+}
+	
+	
+.fav_pic {
+    height: 80px;
+    width: 558px;
+    overflow: auto;
+}
+.fav_pic a {
+    display: table-cell;
+    padding-right: 20px
+}
+.fav_pic a:last-child {
+    padding-right: 0px;
+}
+.fav_pic img {
+    width: 60px;
+    border-radius: 200px;
+	cursor: pointer;
+}
+.fav_video {
+    height: 280px;
+    width: 560px;
+    margin: 0px auto;
+    margin-top: 5px;
+}
+.fav_video iframe {
+    margin: 0px auto;
+    width: 99%;
+    height: inherit;
+}
+.poster, .film_pic {
+    display: inline-block;
+    width: 130px;
+    height: 160px;
+}
+.poster{
+	background-color: black;
+	margin: 0px 5px 5px 0px;
+}
+.poster a{
+	width: 100%;
+}
+.overview{
+	display: none;
+	position: absolute;
+	top: 70px;
+	left: 35px;
+	z-index: 1;
+	color: #f5c518;
+}
+.youtube_player {
+    margin-top: 10px;
+}
+.youtube_player a {
+    width: 50px;
+    height: 200px;
+    padding-top: 150px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 40px;
+    text-align: center;
+    color: #8c8a8a;
+}
+.youtube_player a:hover {
+    color: #ee090a;
+}
+.youtube_player .youtube {
+    width: 450px;
+    height: 350px;
+    margin-left: 50px;
+}
+/*Scroll*/	
+.l_info, .fav_pic, .load_nav{
+    scrollbarBG: #CFD8DC;
+    thumbBG: #90A4AE;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+	
+@media only screen and (max-width: 730px){
+	#interests{width: 100%;height: 100%;position: absolute;border-radius: 0px;}
+	.load_box{width: 100%; height: 100%;border-radius: 0px;}
+	.load_nav{width: 20%;border-radius: 0px;font-size: 2.2vw;overflow: auto;}
+	.load_nav ul li{padding: 8%;}
+	.load_nav ul li:first-child{border-radius: 0px;}
+	.load_info{width: 79%;height: 100%;left:20%;padding-left: 1%;border-radius: 0px;opacity: 0.8;}
+	.l_info{width: 100%;height: 100%;margin: 0px;font-size: 2.1vw;max-height: 400px;}
+	.fav_pic{width: 100%;height: auto;}
+	.fav_pic a{padding-right: 2px;}
+	.fav_pic img{width: 100%;}
+	.fav_video{width: 100%;height: 84%;margin-top: 1%;}
+	.overview{top: 45%;left: 30%;}
+	.poster{width: 22%;height: auto;margin: 0px 1% 1% 0px;}
+	.film_pic{width: 100%;height: auto;}
+	.youtube_player{margin-top: 1%;width: 90%;height: inherit;}
+	.youtube_player a{width:5%;height: 100%;padding-top: inherit;font-size: 4vw;}
+	.youtube_player .youtube{width: 95%;height: inherit;margin-left: 7%;}
+}
+</style>

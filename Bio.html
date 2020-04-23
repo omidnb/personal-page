@@ -1,0 +1,79 @@
+<!doctype html>
+
+<div id="bio">
+  <div class="bio_box"></div>
+  <div class="bio_pic"><img src="img/IMG_8975.jpg" alt=""></div>
+  <div class="bio_info">
+    <p class="info_details">My name is Omid. I was born in 1995 in Tehran, the capital of Iran. I've got my bachelor's degree in computer engineering from the Islamic Azad University of Iran, which is approved by <span>WES</span>.</p>
+    <p>I worked in a web design company in Iran for 10 months and then immigrated to the United States in late 2018. I worked here at PizzaCS for a year, but the restaurant closed due to the Corona virus, and I decided to design this website for two reasons: <a>First, to review what I worked on.</a> <a>Second, to challenge myself and learn new skills.</a></p>
+    <p class="info_details">"Life is hard in America," my boss used to tell me.
+      This difficulty becomes valuable when you pursue your purpose.
+      I hope to find a job in this field so that I can get closer to my goals.</p>
+  </div>
+</div>
+<style>
+/*Bio CSS*/
+body{
+	margin: 0px;
+}
+#bio {
+    font-family: Impact, Charcoal, sans-serif;
+    width: 715px;
+    height: 402px;
+    margin: 0px auto 5px auto;
+    position: relative;
+}
+.bio_box {
+    width: 715px;
+    height: 402px;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    border-radius: 15px;
+}
+.bio_info {
+    width: 60%;
+    height: 75%;
+    position: absolute;
+    font-size: 20px;
+    right: 10px;
+    top: 50px;
+    overflow: auto;
+}
+.bio_info p {
+    color: #eadfb2;
+    margin-right: 5px;
+}
+.info_details {
+    margin: 0px;
+}
+.bio_pic {
+    width: 28%;
+    height: 75%;
+    border: 1px groove black;
+    position: absolute;
+    margin: 7%;
+}
+.bio_pic img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+/*Scroll*/
+.bio_info{
+    scrollbarBG: #CFD8DC;
+    thumbBG: #90A4AE;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+@media only screen and (max-width: 730px){
+	html{top: 2%;position: relative;}
+	#bio{width: 90%;}
+	.bio_box{width: 100%; height: 100%;}
+	.bio_info{width: 90%;height: 90%;top:0px;margin: 5% auto;}
+	.bio_pic{width: 100%;height: 100%; margin: 0px;border:none;}
+	.bio_pic img{object-fit: contain;opacity: 0.7;border-radius:15px;}
+	.bio_info p{margin-right: 5%;font-size: 3vw;}
+}
+</style>
